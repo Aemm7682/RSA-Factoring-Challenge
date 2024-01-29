@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <math.h>
+/***#include <math.h>*/
 #include <stdlib.h>
 void fact_print(unsigned long long n);
 int main(int argc, char *argv[])
@@ -26,12 +26,12 @@ void fact_print(unsigned long long n)
 {
 	unsigned long long p, q;
 
-	for (p = 2; p <= sqrt(n); p++)
+	for (p = 2; p * p < n; p++)
 	{
 		if (n % p == 0)
 			break;
 	}
-	if (p > sqrt(n))
+	if (p * p > n)
 		printf("%llu is a prime number\n", n);
 	else
 	{
