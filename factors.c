@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
-void fact_print(unsigned long n);
+void fact_print(unsigned long long n);
 int main(int argc, char *argv[])
 {
-	unsigned long n;
+	unsigned long long n;
 
 	if (argc != 2)
 	{
@@ -17,14 +17,14 @@ int main(int argc, char *argv[])
 		printf("file could not open %s\n", argv[1]);
 		return (1);
 	}
-	while (fscanf(file, "%lu", &n) == 1)
+	while (fscanf(file, "%llu", &n) == 1)
 		fact_print(n);
 	fclose(file);
 	return (0);
 }
-void fact_print(unsigned long n)
+void fact_print(unsigned long long n)
 {
-	unsigned long p, q;
+	unsigned long long p, q;
 
 	for (p = 2; p <= sqrt(n); p++)
 	{
@@ -32,10 +32,10 @@ void fact_print(unsigned long n)
 			break;
 	}
 	if (p > sqrt(n))
-		printf("%lu is a prime number\n", n);
+		printf("%llu is a prime number\n", n);
 	else
 	{
 		q = n / p;
-		printf("%lu=%lu*%lu\n", n, p, q);
+		printf("%llu=%llu*%llu\n", n, p, q);
 	}
 }
